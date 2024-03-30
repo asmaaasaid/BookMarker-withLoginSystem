@@ -161,20 +161,21 @@ function login()
     let loginPassword = document.getElementById("loginPassword");
     let loginBtn = document.getElementById("loginBtn");
     let wrongMsg = document.getElementById("wrongMsg");
-
+    
     if(loginEmail.value == "" || loginPassword.value == "")
     {
         let fillMsg = document.getElementById("fillMsg");
         fillMsg.classList.replace("d-none", "d-block");
         return false
     }
-
+    
     for(var i = 0; i < usersinfo.length; i++)
     {
         if(usersinfo[i].email.toLowerCase() == loginEmail.value.toLowerCase() && usersinfo[i].password.toLowerCase() == loginPassword.value.toLowerCase())
         {
             localStorage.setItem('sessionUsername', usersinfo[i].name)
-            loginBtn.setAttribute("href", "home.html");
+           
+            loginBtn.setAttribute("href", "/markerBook/markerBook/file/home.html");
         }
         else
         {
@@ -190,5 +191,5 @@ function displayWelcomeUser()
 
 function logout() {
     localStorage.removeItem('sessionUsername');
-    window.location.href='../file/index.html'
+    window.location.href='/markerBook/markerBook/index.html'
 }
